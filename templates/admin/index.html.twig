@@ -8,32 +8,38 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Email</th>
-                <th>Roles</th>
-                <th>Password</th>
-                <th>actions</th>
+                <th>Rôles</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for admin in admins %}
             <tr>
-                <td>{{ admin.id }}</td>
                 <td>{{ admin.email }}</td>
-                <td>{{ admin.roles ? admin.roles|json_encode : '' }}</td>
-                <td>{{ admin.password }}</td>
                 <td>
-                    <a href="{{ path('admin_show', {'id': admin.id}) }}">show</a>
-                    <a href="{{ path('admin_edit', {'id': admin.id}) }}">edit</a>
+                    {% for role in admin.roles %}
+                        {% if role == "ROLE_ADMIN" %}
+                            - Administrateur<br>
+                        {% elseif role == "ROLE_USER" %}
+                            - Utilisateur<br>
+                        {% else %}
+                            - {{ role }}<br>
+                        {% endif %}
+                    {% endfor %}
+                </td>
+                <td>
+                    <a href="{{ path('admin_show', {'id': admin.id}) }}"><i class="fas fa-info"></i> Détails</a>
+                    <a href="{{ path('admin_edit', {'id': admin.id}) }}"><i class="far fa-edit"></i> Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Aucun administrateur à afficher</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('admin_new') }}">Create new</a>
+    <a href="{{ path('admin_new') }}" class="new-btn btn">Ajouter</a>
 {% endblock %}

@@ -16,19 +16,32 @@
                 <td>{{ admin.email }}</td>
             </tr>
             <tr>
-                <th>Roles</th>
-                <td>{{ admin.roles ? admin.roles|json_encode : '' }}</td>
+                <th>Rôles</th>
+                <td>
+                    {% for role in admin.roles %}
+                        {% if role == "ROLE_ADMIN" %}
+                            - Administrateur<br>
+                        {% elseif role == "ROLE_USER" %}
+                            - Utilisateur<br>
+                        {% else %}
+                            - {{ role }}<br>
+                        {% endif %}
+                    {% endfor %}
+                </td>
             </tr>
             <tr>
-                <th>Password</th>
-                <td>{{ admin.password }}</td>
+                <th>Mot de passe</th>
+                <td>
+                    <span>Les mots de passes sont encryptés, la valeur affichée est présente afin de s'assurer que celui ci a bien été encrypté</span>
+                    {{ admin.password }}
+                </td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('admin_index') }}">back to list</a>
+    <a href="{{ path('admin_index') }}" class="back-btn btn">Retour</a>
 
-    <a href="{{ path('admin_edit', {'id': admin.id}) }}">edit</a>
+    <a href="{{ path('admin_edit', {'id': admin.id}) }}" class="edit-btn btn">Modifier</a>
 
     {{ include('admin/_delete_form.html.twig') }}
 {% endblock %}

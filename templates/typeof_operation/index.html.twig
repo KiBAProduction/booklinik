@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeofOperation index{% endblock %}
+
+{% block body %}
+    <h1>TypeofOperation index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for typeof_operation in typeof_operations %}
+            <tr>
+                <td>{{ typeof_operation.id }}</td>
+                <td>{{ typeof_operation.name }}</td>
+                <td>
+                    <a href="{{ path('typeof_operation_show', {'id': typeof_operation.id}) }}">show</a>
+                    <a href="{{ path('typeof_operation_edit', {'id': typeof_operation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('typeof_operation_new') }}">Create new</a>
+{% endblock %}

@@ -38,6 +38,10 @@
                             <h3><i class="fas fa-tachometer-alt"></i> Tableau de bord WIP</h3>
                             <li {% if current_path|slice(0,4) is same as('home') %} class="active" {% endif %}><a href="{{ path('home') }}">Accueil</a></li>
                             
+                            <h3><i class="fas fa-stethoscope"></i> Opérations</h3>
+                            <li {% if current_path|slice(0,16) is same as('typeof_operation') %} class="active" {% endif %}><a href="{{ path('typeof_operation_index') }}">Types d'opération</a></li>
+                            <li {% if current_path|slice(0,9) is same as('operation') %} class="active" {% endif %}><a href="{{ path('operation_index') }}">Opérations</a></li>
+                            
                             <h3><i class="fas fa-tools"></i> Administration</h3>
                             <li {% if current_path|slice(0,5) is same as('admin') %} class="active" {% endif %}><a href="{{ path('admin_index') }}">Admin</a></li>
                         </ul>

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit TypeofOperation{% endblock %}
+
+{% block body %}
+    <h1>Edit TypeofOperation</h1>
+
+    {{ include('typeof_operation/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('typeof_operation_index') }}">back to list</a>
+
+    {{ include('typeof_operation/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ContactInfo index{% endblock %}
+
+{% block body %}
+    <h1>ContactInfo index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Copyright</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for contact_info in contact_infos %}
+            <tr>
+                <td>{{ contact_info.email }}</td>
+                <td>{{ contact_info.phone }}</td>
+                <td>{{ contact_info.copyright }}</td>
+                <td>
+                    <a href="{{ path('contact_info_show', {'id': contact_info.id}) }}"><i class="fas fa-info"></i> Détails</a>
+                    <a href="{{ path('contact_info_edit', {'id': contact_info.id}) }}"><i class="fas fa-edit"></i> Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucune information de contact à afficher</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('contact_info_new') }}" class="btn new-btn">Ajouter</a>
+{% endblock %}

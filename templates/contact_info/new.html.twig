@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle information de contact{% endblock %}
+
+{% block body %}
+    <h1>Nouvelle information de contact</h1>
+
+    {{ include('contact_info/_form.html.twig') }}
+
+    <a href="{{ path('contact_info_index') }}" class="btn back-btn">Retour</a>
+{% endblock %}

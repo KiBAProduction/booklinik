@@ -39,4 +39,10 @@ class ApiController extends AbstractController
             'data' => $data
         ]);
     }
+
+    public function getContactInfo(): JsonResponse
+    {
+        $em = $this->getDoctrine()->getManager();
+        
+    }
 }

@@ -6,14 +6,52 @@
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
+            <link rel="stylesheet" href="/assets/css/reset.css">
+            <link rel="stylesheet" href="/assets/css/main.css">
+            <link rel="stylesheet" href="/assets/css/header.css">
+            <link rel="stylesheet" href="/assets/css/nav.css">
+            <link rel="stylesheet" href="/assets/css/crud.css">
         {% endblock %}
 
         {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
+            <script src="https://kit.fontawesome.com/074aad4e80.js" crossorigin="anonymous"></script>
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% set current_path = app.request.get('_route') %}
+
+        {% if app.user %}
+            <header>
+                <div class="header_wrap">
+                    <h1>Logo TODO</h1>
+                        <div class="user_nav">
+                            <p>{{ app.user.username }}</p>
+                            <a class="btn delete-btn" href="{{ path('logout') }}">Déconnexion</a>
+                        </div>
+                </div>
+            </header>
+
+            <div class="main">
+                <nav>
+                    <div class="nav_wrap">
+                        <ul>
+                            <h3><i class="fas fa-tachometer-alt"></i> Tableau de bord WIP</h3>
+                            <li {% if current_path|slice(0,4) is same as('home') %} class="active" {% endif %}><a href="{{ path('home') }}">Accueil</a></li>
+                            
+                            <h3><i class="fas fa-tools"></i> Administration</h3>
+                            <li {% if current_path|slice(0,5) is same as('admin') %} class="active" {% endif %}><a href="{{ path('admin_index') }}">Admin</a></li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <div class="content">
+                    {{ block('body') }}
+                </div>
+            </div>
+
+        {% else %}
+                    {{ block('body') }}
+        {% endif %}
+
     </body>
 </html>

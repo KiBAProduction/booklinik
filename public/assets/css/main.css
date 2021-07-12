@@ -1,0 +1,46 @@
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 55px;
+}
+
+.content {
+    width: 100%;
+    padding: 2em 2em 0 2em;
+}
+
+.content h1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1f1c18;
+    margin-bottom: 15px;
+}
+
+.content .buttons {
+    margin-bottom: 15px;
+}
+
+.content .buttons a:any-link {
+    color: #1f1c18;
+    text-decoration: none;
+}
+
+.content .buttons a {
+    border: solid #1f1c18 1px;
+    padding: 5px 10px;
+}
+
+.content table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    color: #1f1c18;
+    margin-bottom: 1em;
+}
+
+.content td, .content th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}

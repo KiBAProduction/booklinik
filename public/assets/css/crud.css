@@ -1,0 +1,137 @@
+.btn {
+    display: inline-block;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    text-transform: none;
+    overflow: visible;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.options-btn {
+    display: flex;
+    justify-content: space-between;
+}
+
+.new-btn, .form-valid-btn {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+.new-btn:hover, .form-valid-btn:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}  
+.new-btn:active, .form-valid-btn:active {
+    background-color: #1e7e34;
+    border-color: #1c7430;
+}
+
+.back-btn {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+.back-btn:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}  
+.back-btn:active {
+    background-color: #545b62;
+    border-color: #4e555b;
+}
+
+.edit-btn {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+.edit-btn:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}  
+.edit-btn:active {
+    background-color: #0062cc;
+    border-color: #005cbf;
+}
+
+.delete-btn {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+.delete-btn:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}  
+.delete-btn:active {
+    background-color: #bd2130;
+    border-color: #b21f2d;
+}
+
+.order {
+    display: flex;
+    align-items: center;
+}
+
+.sort-btn button {
+    color: #000;
+    background-color: #fff;
+    border: solid #000 1px;
+    margin-left: 10px;
+}
+
+td > a {
+    color: #000;
+    text-decoration: none;
+    padding: 0 5px;
+}
+
+td > a:hover {
+    color: #cb413e;
+}
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    padding-right: 20px;
+    padding-top: 30px;
+}
+
+.form div {
+    margin-bottom: 10px;
+
+}
+
+.form input {
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #cb413e;
+    font-size: 16px;
+    display: block;
+}
+
+.form label {
+    font-weight: bold;
+    color: #333;
+}
+
+.form label::after {
+    content: " : ";
+}

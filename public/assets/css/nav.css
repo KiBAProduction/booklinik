@@ -1,0 +1,42 @@
+nav {
+    width: 14em;
+    height: calc(100vh - 55px);
+    background-color: #eee;
+    color: #1f1c18;
+    border-right: solid 1px #1f1c18;
+    font-family: 'Marcellus',sans-serif;
+}
+
+nav a:any-link {
+    color: #1f1c18;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #cb413e;
+    font-weight: bold;
+}
+
+nav .nav_wrap {
+    margin: 0 1em;
+    padding-top: 10px;
+}
+
+.nav_wrap ul li {
+    padding-bottom: 5px;
+}
+
+.nav_wrap ul h3 {
+    font-weight: bold;
+    font-size: 18px;
+    padding-bottom: 5px;
+    color: #912725;
+}
+
+.nav_wrap ul h3:nth-child(n+1) {
+    padding-top: 10px;
+}
+
+.nav_wrap ul .active {
+    font-weight: bold;
+}

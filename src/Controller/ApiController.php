@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Operation;
+use App\Entity\ContactInfo;
 
 /**
  * @Route("/api")
@@ -40,9 +41,31 @@ class ApiController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/contact/info", name="api_get_contact_info", methods={"GET"})
+     */
     public function getContactInfo(): JsonResponse
     {
         $em = $this->getDoctrine()->getManager();
+
+        $contactInfos = $em->getRepository(ContactInfo::class)->findAll();
         
+        if (!$contactInfos) {
+            throw new HttpException(200, "No contact info found");   
+        }
+
+        foreach ($contactInfos as $key => $contactInfo) {
+            $data[] = [
+                'id' => $contactInfo->getId(),
+                'email' => $contactInfo->getEmail(),
+                'phone' => $contactInfo->getPhone(),
+                'copy' => $contactInfo->getCopyright(),
+            ];
+        }
+
+        return new JsonResponse([
+            'status_code' => 200,
+            'data' => $data
+        ]);
     }
 }

@@ -1,14 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}TypeofOperation index{% endblock %}
+{% block title %}Types d'opération{% endblock %}
 
 {% block body %}
-    <h1>TypeofOperation index</h1>
+    <h1>Types d'opération</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Name</th>
                 <th>actions</th>
             </tr>
@@ -16,20 +15,19 @@
         <tbody>
         {% for typeof_operation in typeof_operations %}
             <tr>
-                <td>{{ typeof_operation.id }}</td>
                 <td>{{ typeof_operation.name }}</td>
                 <td>
-                    <a href="{{ path('typeof_operation_show', {'id': typeof_operation.id}) }}">show</a>
-                    <a href="{{ path('typeof_operation_edit', {'id': typeof_operation.id}) }}">edit</a>
+                    <a href="{{ path('typeof_operation_show', {'id': typeof_operation.id}) }}"><i class="fas fa-info"></i> Détails</a>
+                    <a href="{{ path('typeof_operation_edit', {'id': typeof_operation.id}) }}"><i class="far fa-edit"></i> Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="2">Aucun type d'opération à afficher</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('typeof_operation_new') }}">Create new</a>
+    <a href="{{ path('typeof_operation_new') }}" class="new-btn btn">Ajouter</a>
 {% endblock %}

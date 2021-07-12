@@ -1,13 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit TypeofOperation{% endblock %}
+{% block title %}Modifier un type d'opération{% endblock %}
 
 {% block body %}
-    <h1>Edit TypeofOperation</h1>
+    <h1>Modifier un type d'opération</h1>
 
-    {{ include('typeof_operation/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('typeof_operation/_form.html.twig', {'button_label': 'Modifier'}) }}
 
-    <a href="{{ path('typeof_operation_index') }}">back to list</a>
+    <div class="options-btn">
+        <a href="{{ path('typeof_operation_index') }}" class="back-btn btn">Retour</a>
+        {{ include('typeof_operation/_delete_form.html.twig') }}
+    </div>
 
-    {{ include('typeof_operation/_delete_form.html.twig') }}
 {% endblock %}

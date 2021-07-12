@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}TypeofOperation{% endblock %}
+{% block title %}Type d'opération{% endblock %}
 
 {% block body %}
-    <h1>TypeofOperation</h1>
+    <h1>Type d'opération</h1>
 
     <table class="table">
         <tbody>
@@ -18,9 +18,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('typeof_operation_index') }}">back to list</a>
+    <a href="{{ path('typeof_operation_index') }}" class="btn back-btn">Retour</a>
 
-    <a href="{{ path('typeof_operation_edit', {'id': typeof_operation.id}) }}">edit</a>
+    <a href="{{ path('typeof_operation_edit', {'id': typeof_operation.id}) }}" class="btn edit-btn">Modifier</a>
 
     {{ include('typeof_operation/_delete_form.html.twig') }}
 {% endblock %}

@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Operation{% endblock %}
+{% block title %}Nouvelle opération{% endblock %}
 
 {% block body %}
-    <h1>Create new Operation</h1>
+    <h1>Nouvelle opération</h1>
 
     {{ include('operation/_form.html.twig') }}
 
-    <a href="{{ path('operation_index') }}">back to list</a>
+    <a href="{{ path('operation_index') }}" class="btn back-btn">Retour</a>
 {% endblock %}

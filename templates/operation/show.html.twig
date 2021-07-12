@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Operation{% endblock %}
+{% block title %}Opération{% endblock %}
 
 {% block body %}
-    <h1>Operation</h1>
+    <h1>Opération</h1>
 
     <table class="table">
         <tbody>
@@ -26,9 +26,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('operation_index') }}">back to list</a>
+    <a href="{{ path('operation_index') }}" class="btn back-btn">Retour</a>
 
-    <a href="{{ path('operation_edit', {'id': operation.id}) }}">edit</a>
+    <a href="{{ path('operation_edit', {'id': operation.id}) }}" class="btn edit-btn">Modifier</a>
 
     {{ include('operation/_delete_form.html.twig') }}
 {% endblock %}
